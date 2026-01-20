@@ -1,13 +1,13 @@
 # README for Username Validation Script
 
 ## Author Information
-- **Name:** [Your Full Name]
-- **Course:** [Course Number and Name]
+- **Name:** Kavin Ravi
+- **Course:** CPSC 298 - Unix
 - **Assignment:** Username Validation
-- **Date:** [Date of Completion]
+- **Date:** January 20, 2026
 
 ## Program Description
-[Write 2-3 sentences in your own words describing what this script does and its purpose. Explain the problem it solves and how it works at a high level.]
+This script validates usernames according to standard Unix username conventions. It prompts the user for a username, checks whether it meets the validation criteria using a regular expression, and reports whether the username is valid or invalid. The script runs in a loop, allowing multiple usernames to be checked until the user types 'quit' to exit.
 
 ## Username Requirements
 This script validates usernames according to the following rules:
@@ -27,11 +27,7 @@ To test with the provided input file:
 ```
 
 ## How the Script Works
-[Explain in 3-5 sentences how your script validates usernames. Include information about:]
-- The use of the `while` loop
-- The `grep` command with extended regular expressions
-- The meaning of the `-E` and `-v` flags
-- The redirect `> /dev/null 2>&1`
+The script uses a `while` loop with `read` to continuously accept user input until EOF or the user types 'quit'. For each input, the `grep` command with the `-E` flag enables extended regular expressions to match the username against the validation pattern. When the username matches, grep returns exit code 0 (success), which the `if` statement uses to determine validity. The redirect `> /dev/null 2>&1` suppresses all output from grep since we only care about the exit code, not the matched text.
 
 ## Regular Expression Pattern
 The validation uses the following regular expression pattern:
@@ -44,16 +40,25 @@ This pattern ensures that:
 - The total length is between 3 and 12 characters
 
 ## Testing Results
-[Describe your testing process and results. Include:]
-- Example valid usernames you tested (at least two)
-- Example invalid usernames and why they fail (at least two)
-- How you used the username-input file to test
+Testing was performed using the `username-input` file which contains various test cases:
 
-## Challenges and Solutions
-[Optional: Describe any challenges you encountered while creating this script and how you solved them. This could include debugging issues, understanding regular expressions, or Git workflow problems.]
+**Valid usernames tested:**
+- `jsmith` - 6 characters, starts with lowercase, valid characters
+- `jsmith_2023` - 11 characters, includes underscore, valid format
+- `admin` - 5 characters, simple valid username
+- `user123456` - 10 characters, mix of letters and digits
+
+**Invalid usernames and reasons:**
+- `js` - Too short (2 characters, minimum is 3)
+- `jsmith12345678` - Too long (14 characters, maximum is 12)
+- `jSmith` - Contains uppercase letter 'S'
+- `123abc` - Starts with digits instead of lowercase letter
+- `test-user` - Contains hyphen which is not allowed
 
 ## Resources
-[List any resources you used (class slides, ChatGPT, etc.). Please refer to the course syllabus for more details on citations.]
+- Course materials and slides for CPSC 298
+- Bash manual pages (`man bash`, `man grep`)
+- ShellCheck documentation for script validation
 
 ## License
 This project is part of coursework for Chapman University and is intended for educational purposes.
