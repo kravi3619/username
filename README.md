@@ -43,22 +43,22 @@ This pattern ensures that:
 Testing was performed using the `username-input` file which contains various test cases:
 
 **Valid usernames tested:**
-- `jsmith` - 6 characters, starts with lowercase, valid characters
-- `jsmith_2023` - 11 characters, includes underscore, valid format
-- `admin` - 5 characters, simple valid username
-- `user123456` - 10 characters, mix of letters and digits
+- `jsmith` 
+- `jsmith_2023` 
+- `admin` 
+- `user123456` 
 
 **Invalid usernames and reasons:**
-- `js` - Too short (2 characters, minimum is 3)
-- `jsmith12345678` - Too long (14 characters, maximum is 12)
-- `jSmith` - Contains uppercase letter 'S'
-- `123abc` - Starts with digits instead of lowercase letter
-- `test-user` - Contains hyphen which is not allowed
+- `js` 
+- `jsmith12345678` 
+- `jSmith` 
+- `123abc` 
+- `test-user` 
 
 ## Resources
-- Course materials and slides for CPSC 298
-- Bash manual pages (`man bash`, `man grep`)
-- ShellCheck documentation for script validation
+- Course materials (mainly pdfs)
+- StackOverflow for git config changes
+
 
 ## License
 This project is part of coursework for Chapman University and is intended for educational purposes.
